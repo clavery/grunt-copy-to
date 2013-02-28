@@ -44,17 +44,26 @@ module.exports = function(grunt) {
     copyto: {
       test: {
         files: [
-          {cwd: 'spec/test', src: ['**/*'], dest: 'tmp/'}
+          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/tmp/'}
+        ]
+      },
+      test2: {
+        files: [
+          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/existing/'}
         ]
       }
+    },
+    clean: {
+      test: ['spec/tmp']
     }
   });
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'exec:jasmine']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copyto', 'exec:jasmine']);
 
 };

@@ -1,14 +1,14 @@
 # grunt-copy-to
 
-Like grunt-contrib-copy but only copies files that have changed and maintains modified times. Useful for creating build directories that can be later synced using tools that rely on file modified times.
+Like grunt-contrib-copy but only copies files that are newer and maintains modified times for copied files. Useful for creating build directories that can be later synced using tools that rely on file modified times.
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-generator`
+Install this grunt plugin next to your project's [Gruntfile.js gruntfile][getting_started] with: `npm install grunt-generator`
 
-Then add this line to your project's `grunt.js` gruntfile:
+Then add this line to your project's `Gruntfile.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-generator');
+grunt.loadNpmTasks('grunt-copy-to');
 ```
 
 [grunt]: http://gruntjs.com/
@@ -16,10 +16,21 @@ grunt.loadNpmTasks('grunt-generator');
 
 ## Documentation
 
+```javascript
+copyto: {
+  stuff: {
+    files: [
+      {cwd: 'stuffdir/', src: ['**/*'], dest: 'build/'}
+    ]
+  }
+}
+```
 
 ## Release History
+0.0.2 - Tests
+
 0.0.1 - Initial Release
 
 ## License
-Copyright (c) 2012 Charles Lavery  
+Copyright (c) 2013 Charles Lavery  
 Licensed under the MIT license.
