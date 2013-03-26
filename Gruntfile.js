@@ -45,16 +45,28 @@ module.exports = function(grunt) {
       test: {
         files: [
           {cwd: 'spec/test', src: ['**/*'], dest: 'spec/tmp/'}
-        ]
+        ],
+        options: {
+          ignore: [
+            'spec/test/dontcopy.txt',
+            'spec/test/**/*.foo'
+          ]
+        }
       },
       test2: {
         files: [
           {cwd: 'spec/test', src: ['**/*'], dest: 'spec/existing/'}
-        ]
+        ],
+        options: {
+          ignore: [
+            'spec/test/dontcopy.txt',
+            'spec/test/**/*.foo'
+          ]
+        }
       }
     },
     clean: {
-      test: ['spec/tmp']
+      test: ['spec/tmp', 'spec/existing']
     }
   });
   grunt.loadTasks('tasks');

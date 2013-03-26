@@ -21,12 +21,22 @@ copyto: {
   stuff: {
     files: [
       {cwd: 'stuffdir/', src: ['**/*'], dest: 'build/'}
-    ]
+    ],
+    options: {
+      // array of ignored paths, can be specific files or a glob
+      ignore: [
+        'stuffdir/**/*.bak',
+        'stuffdir/dontcopyme.txt'
+      ]
+    }
   }
 }
 ```
 
 ## Release History
+
+0.0.3 - Add ignore array
+
 0.0.2 - Tests
 
 0.0.1 - Initial Release

@@ -34,4 +34,9 @@ describe('copy-to', function() {
 
     expect(statsFrom.mtime).toEqual(statsTo.mtime);
   });
+
+  it('should ignore specified files', function() {
+    expect(grunt.file.exists(path.join(toDir, 'dontcopy.txt'))).toBe(false);
+    expect(grunt.file.exists(path.join(toDir, 'dir1', 'test.foo'))).toBe(false);
+  });
 });
