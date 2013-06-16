@@ -1,6 +1,6 @@
 {
   "name": "grunt-copy-to",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "grunt task for syncing files between directories and keeping modified times",
   "main": "index.js",
   "scripts": {
