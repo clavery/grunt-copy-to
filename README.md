@@ -3,7 +3,7 @@
 Like grunt-contrib-copy but only copies files that are newer and maintains modified times for copied files. Useful for creating build directories that can be later synced using tools that rely on file modified times.
 
 ## Getting Started
-Install this grunt plugin next to your project's [Gruntfile.js gruntfile][getting_started] with: `npm install grunt-generator`
+Install this grunt plugin next to your project's [Gruntfile.js gruntfile][getting_started] with: `npm install grunt-copy-to`
 
 Then add this line to your project's `Gruntfile.js` gruntfile:
 
