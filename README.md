@@ -28,7 +28,7 @@ copyto: {
         'stuffdir/**/*.bak',
         'stuffdir/dontcopyme.txt',
         // ignore both a directory and it's contents (brace expansion)
-        'stuffdir/{somedir,somedir/**/*}
+        'stuffdir/somedir{,/**/*}
       ]
     }
   }
@@ -36,6 +36,8 @@ copyto: {
 ```
 
 ## Release History
+
+0.0.6 - clarification
 
 0.0.5 - code cleanup; readme updates
 
