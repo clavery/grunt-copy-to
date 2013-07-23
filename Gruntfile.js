@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         options: {
           ignore: [
             'spec/test/dontcopy.txt',
+            'spec/test/{dir2,dir2/**/*}',
             'spec/test/**/*.foo'
           ]
         }
@@ -60,6 +61,7 @@ module.exports = function(grunt) {
         options: {
           ignore: [
             'spec/test/dontcopy.txt',
+            'spec/test/{dir2,dir2/**/*}',
             'spec/test/**/*.foo'
           ]
         }

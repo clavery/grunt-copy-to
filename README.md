@@ -26,7 +26,9 @@ copyto: {
       // array of ignored paths, can be specific files or a glob
       ignore: [
         'stuffdir/**/*.bak',
-        'stuffdir/dontcopyme.txt'
+        'stuffdir/dontcopyme.txt',
+        // ignore both a directory and it's contents (brace expansion)
+        'stuffdir/{somedir,somedir/**/*}
       ]
     }
   }
@@ -34,6 +36,8 @@ copyto: {
 ```
 
 ## Release History
+
+0.0.5 - code cleanup; readme updates
 
 0.0.3 - Add ignore array
 

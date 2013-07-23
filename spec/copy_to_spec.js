@@ -39,4 +39,9 @@ describe('copy-to', function() {
     expect(grunt.file.exists(path.join(toDir, 'dontcopy.txt'))).toBe(false);
     expect(grunt.file.exists(path.join(toDir, 'dir1', 'test.foo'))).toBe(false);
   });
+
+  it('should ignore specified directories', function() {
+    expect(grunt.file.exists(path.join(toDir, 'dir2', 'shouldnotbecopies.txt'))).toBe(false);
+    expect(grunt.file.exists(path.join(toDir, 'dir2'))).toBe(false);
+  });
 });

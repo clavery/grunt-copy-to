@@ -12,16 +12,6 @@ module.exports = function(grunt) {
       'ignore': [],
     });
 
-    var isIgnored = function(path) {
-      if(_.isArray(options.ignore)) {
-        return _.any(options.ignore, function(item) {
-          return grunt.file.isMatch(item, path);  
-        }); 
-      } else {
-        return grunt.file.isMatch(options.ignore, path);  
-      }
-    };
-
     this.files.forEach(function(pair) {
 
       pair.src.forEach(function(src) {
@@ -30,7 +20,7 @@ module.exports = function(grunt) {
         var mtime = stats.mtime.getTime();
         var dest = pair.dest + src;
 
-        if(isIgnored(fullpath)) {
+        if(grunt.file.isMatch(options.ignore, fullpath)) {
           grunt.verbose.writeln('Ignored ' + src.red);
         } else {
           if(stats.isFile()) {
