@@ -37,7 +37,7 @@ copyto: {
 
 ## Release History
 
-0.0.6 - clarification
+0.0.7 - clarification
 
 0.0.5 - code cleanup; readme updates
 
