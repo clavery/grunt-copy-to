@@ -23,6 +23,10 @@ copyto: {
       {cwd: 'stuffdir/', src: ['**/*'], dest: 'build/'}
     ],
     options: {
+      processContent: function(content, path) {
+          // do something with content or return false to abort copy
+          return content;
+      },
       // array of ignored paths, can be specific files or a glob
       ignore: [
         'stuffdir/**/*.bak',
@@ -36,6 +40,8 @@ copyto: {
 ```
 
 ## Release History
+
+0.0.8 - adds processContent 
 
 0.0.7 - clarification
 

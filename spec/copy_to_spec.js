@@ -44,4 +44,11 @@ describe('copy-to', function() {
     expect(grunt.file.exists(path.join(toDir, 'dir2', 'shouldnotbecopies.txt'))).toBe(false);
     expect(grunt.file.exists(path.join(toDir, 'dir2'))).toBe(false);
   });
+  it('should process content', function() {
+    expect(grunt.file.exists(path.join(toDir, 'testing.txt'))).toBe(true);
+
+    var contents = grunt.file.read(path.join(toDir, 'testing.txt'));
+    expect(contents).toMatch(/three/);
+    expect(contents).not.toMatch(/two/);
+  });
 });

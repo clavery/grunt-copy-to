@@ -9,8 +9,13 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('copyto', 'Sync files between directories', function() {
     var options = this.options({
-      'ignore': [],
+      'ignore': []
     });
+
+    var copyOptions = {};
+    if(options.processContent) {
+      copyOptions.process = options.processContent;
+    }
 
     this.files.forEach(function(pair) {
 
@@ -29,14 +34,14 @@ module.exports = function(grunt) {
 
               if(destMtime < mtime) {
                 grunt.log.writeln('Changed ' + src.green);
-                grunt.file.copy(fullpath, pair.dest + src, {});
+                grunt.file.copy(fullpath, pair.dest + src, copyOptions);
                 fs.utimesSync(dest, stats.mtime, stats.mtime);
               } else {
                 grunt.verbose.writeln('Unchanged ' + src.red);
               }
             } else {
               grunt.log.writeln('New File ' + src.green);
-              grunt.file.copy(fullpath, dest, {});
+              grunt.file.copy(fullpath, dest, copyOptions);
               fs.utimesSync(dest, stats.mtime, stats.mtime);
             }
           } else if(stats.isDirectory()) {

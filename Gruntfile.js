@@ -47,6 +47,11 @@ module.exports = function(grunt) {
           {cwd: 'spec/test', src: ['**/*'], dest: 'spec/tmp/'}
         ],
         options: {
+          processContent: function(content, path) {
+            if(path.match(/testing\.txt/)) {
+              return content.replace(/two/, "three");
+            }
+          },
           ignore: [
             'spec/test/dontcopy.txt',
             'spec/test/dir2{,/**/*}',
