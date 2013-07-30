@@ -32,7 +32,7 @@ copyto: {
         'stuffdir/**/*.bak',
         'stuffdir/dontcopyme.txt',
         // ignore both a directory and it's contents (brace expansion)
-        'stuffdir/somedir{,/**/*}
+        'stuffdir/somedir{,/**/*}'
       ]
     }
   }
