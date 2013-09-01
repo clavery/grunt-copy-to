@@ -41,6 +41,8 @@ copyto: {
 
 ## Release History
 
+0.0.9 - be less verbose by default, display summary; use --verbose for full output
+
 0.0.8 - adds processContent 
 
 0.0.7 - clarification
