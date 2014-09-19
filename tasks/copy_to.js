@@ -20,17 +20,19 @@ module.exports = function(grunt) {
     var dirsCreated = 0;
     var filesCopied = 0;
     var filesUnchanged = 0;
+    var filesIgnored = 0;
 
     this.files.forEach(function(pair) {
 
       pair.src.forEach(function(src) {
-        var fullpath = pair.orig.cwd + path.sep + src;
-        var stats = fs.statSync(fullpath);
-        var mtime = stats.mtime.getTime();
-        var dest = pair.dest + src;
-
+          var fullpath = path.resolve(src);
+          var stats = fs.statSync(fullpath);
+          var mtime = stats.mtime.getTime();
+          var dest = path.resolve(pair.dest);
+          
         if(grunt.file.isMatch(options.ignore, fullpath)) {
           grunt.verbose.writeln('Ignored ' + src.red);
+          filesIgnored++;
         } else {
           if(stats.isFile()) {
             if(grunt.file.exists(dest)) {
@@ -38,7 +40,7 @@ module.exports = function(grunt) {
 
               if(destMtime < mtime) {
                 grunt.verbose.writeln('Changed ' + src.green);
-                grunt.file.copy(fullpath, pair.dest + src, copyOptions);
+                grunt.file.copy(fullpath, dest, copyOptions);
                 fs.utimesSync(dest, stats.atime, stats.mtime);
                 filesCopied++;
               } else {
@@ -64,6 +66,6 @@ module.exports = function(grunt) {
       });
     });
 
-    grunt.log.writeln("Copied " + filesCopied.toString().green + " files (" + filesUnchanged.toString().red + " unchanged), created " + dirsCreated.toString().cyan + " folders");
+    grunt.log.writeln("Copied " + filesCopied.toString().green + " files (" + filesUnchanged.toString().red + " unchanged), created " + dirsCreated.toString().cyan + " folders, ignored " + filesIgnored.toString().yellow + " resources");
   });
 };
