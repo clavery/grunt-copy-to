@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     copyto: {
       test: {
         files: [
-          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/tmp/'}
+          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/tmp/', expand:true }
         ],
         options: {
           processContent: function(content, path) {
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       },
       test2: {
         files: [
-          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/existing/'}
+          {cwd: 'spec/test', src: ['**/*'], dest: 'spec/existing/', expand:true}
         ],
         options: {
           ignore: [

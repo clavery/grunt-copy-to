@@ -41,6 +41,8 @@ copyto: {
 
 ## Release History
 
+0.0.12 - bug fixes for ignored files and tests
+
 0.0.11 - path fixes/features (@QuentinSup)
 
 0.0.10 - bug fixes (@fschell)

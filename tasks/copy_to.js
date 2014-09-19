@@ -25,12 +25,12 @@ module.exports = function(grunt) {
     this.files.forEach(function(pair) {
 
       pair.src.forEach(function(src) {
-          var fullpath = path.resolve(src);
-          var stats = fs.statSync(fullpath);
-          var mtime = stats.mtime.getTime();
-          var dest = path.resolve(pair.dest);
+        var fullpath = path.resolve(src);
+        var stats = fs.statSync(fullpath);
+        var mtime = stats.mtime.getTime();
+        var dest = path.resolve(pair.dest);
           
-        if(grunt.file.isMatch(options.ignore, fullpath)) {
+        if(grunt.file.isMatch(options.ignore, src)) {
           grunt.verbose.writeln('Ignored ' + src.red);
           filesIgnored++;
         } else {
