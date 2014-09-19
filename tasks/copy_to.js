@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
               if(destMtime < mtime) {
                 grunt.verbose.writeln('Changed ' + src.green);
-                grunt.file.copy(fullpath, pair.dest + src, copyOptions);
+                grunt.file.copy(fullpath, dest, copyOptions);
                 fs.utimesSync(dest, stats.atime, stats.mtime);
                 filesCopied++;
               } else {
