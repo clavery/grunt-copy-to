@@ -20,7 +20,7 @@ grunt.loadNpmTasks('grunt-copy-to');
 copyto: {
   stuff: {
     files: [
-      {cwd: 'stuffdir/', src: ['**/*'], dest: 'build/'}
+      {cwd: 'stuffdir/', src: ['**/*'], dest: 'build/', expand: true}
     ],
     options: {
       processContent: function(content, path) {
